@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
+
 gem 'bootstrap-sass'
 
 gem 'font-awesome-rails'
