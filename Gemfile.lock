@@ -225,7 +225,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
-  paperclip
+  paperclip (~> 5.0.0)
   populator
   pry-byebug
   puma (~> 3.0)
