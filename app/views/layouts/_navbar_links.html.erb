@@ -44,19 +44,6 @@
 	    <%= link_to 'About', about_path %>
 	  </li>
 
-	  <!-- ***************** -->
-	  <!-- search bar        -->
-	  <!-- ***************** -->
-	  <span class="pull-right">
-	    <%= form_tag(shop_path, method: :get, role: "search", class: "form-inline") do  %>
-	      <div class="form-group">
-		<%# TODO: hide the search label %>
-		<%# label_tag :search class: "sr-only" %>
-		<%= text_field_tag(:search, nil, placheholder: "Search Products", class: "form-control input-sm") %>
-	      </div>
-	      <%= submit_tag(:search, class: "btn btn-default btn-sm") %>
-	    <% end %>
-	  </span>
 
 	</li>
       </ul>
