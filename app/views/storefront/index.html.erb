@@ -1,0 +1,56 @@
+<h1>Welcome to the Stor-tastic!</h1>
+<p>Where all of your awesome products dreams come true</p>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <% @products.each do |product| %>
+      <div class="col-sm-2">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <%= image_tag product.avatar.url(:thumb) %>
+	    <h5><%= number_to_currency(product.price) %></h5>
+	    <a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
+	    <h5><%= product.name %></h5>
+	    <span class="glyphicon glyphicon-plus">
+		<small>quick info
+		</small>
+	    </span>
+	    </a>
+	  </div>
+	</div>
+      </div>
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      <h4 class="modal-title" id="myModalLabel"><%= product.name %></h4>
+	    </div>
+	    <div class="modal-body">
+	      <p>
+	      <%= image_tag product.avatar.url(:medium) %>
+	      </p>
+	      <p>
+	      <%= number_to_currency(product.price) %>
+	      </p>
+	      <p>
+	      <%= product.description %>
+	      </p>
+	    </div>
+	    <div class="modal-footer">
+	      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      <button type="button" class="btn btn-primary">Save changes</button>
+	    </div>
+	  </div>
+	</div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+</div>
