@@ -1,6 +1,18 @@
 <h1>Welcome to the Stor-tastic!</h1>
 <p>Where all of your awesome products dreams come true</p>
 
+<% if params[:cat_id] %>
+  <h3>
+    <%= @category.name.capitalize %>
+    </h3>
+  <% else %>
+    <h3>
+      All Products
+    </h3>
+  </h3>
+<% end %>
+
+
 <div class="container-fluid">
   <div class="row">
 
