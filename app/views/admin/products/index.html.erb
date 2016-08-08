@@ -21,7 +21,7 @@
       <tr>
         <td><%= image_tag product.avatar.url(:thumb) %></td>
         <td><%= product.name %></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency(product.price) %></td>
         <td><%= product.quantity %></td>
         <td><%= product.description %></td>
         <td><%= product.category.try('name') %></td>
