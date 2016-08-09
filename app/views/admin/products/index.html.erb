@@ -1,5 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<!-- ### Search bar ### -->
+
+<span class="pull-right">
+  <%= form_tag(admin_products_path, method: :get, role: "search", class: "form-inline") do  %>
+    <div class="form_group">
+      <%# TODO: hide the search label %>
+      <%# label_tag :search class: "sr-only" %>
+      <%= text_field_tag(:search, nil, placheholder: "Search Products", class: "form-control input-sm") %>
+    </div>
+    <%= submit_tag(:search, class: "btn btn-default btn-sm") %>
+  <% end %>
+</span>
+
 <h1>Products</h1>
 
 <table class="table table-striped table-hover">
