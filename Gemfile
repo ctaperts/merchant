@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+gem 'will_paginate-bootstrap'
 
 gem "paperclip", "~> 5.0.0"
 

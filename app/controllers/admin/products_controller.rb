@@ -9,14 +9,14 @@ class Admin::ProductsController < ApplicationController
       @products = Product.search_by_name_or_description(params[:search])
       if @products.empty?
 	flash[:notice] = "No results found for \"#{params[:search]}\", showing all products instead"
-	@products = Product.all
+	@products = Product.paginate(:page => params[:page], :per_page => 3)
       end
 
     elsif params[:cat_id]
       @category = Category.find(params[:cat_id])
       @products = Product.where(category_id: params[:cat_id])
     else
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 3)
     end
   end
 
