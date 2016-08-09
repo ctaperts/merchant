@@ -47,9 +47,8 @@
     <% end %>
   </tbody>
 </table>
-<div class="col-sm-offset-5">
+<br>
+<%= link_to 'New Product', new_admin_product_path, class: "btn btn-sm btn-success" %>
+<div class="text-center">
 <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
 </div>
-<br>
-
-<%= link_to 'New Product', new_admin_product_path, class: "btn btn-sm btn-success" %>
