@@ -48,10 +48,15 @@
 	</li>
       </ul>
 
-	  <!-- ***************** -->
-	  <!-- sign in/ sign out-->
-	  <!-- ***************** -->
+	  <!-- ************************** -->
+	  <!-- sign in/ sign out / cart   -->
+	  <!-- ************************** -->
       <ul class="nav navbar-nav navbar-right">
+	<!-- cart -->
+	  <li>
+	    <%= link_to fa_icon("truck", text:'Cart'), edit_cart_path %>
+	  </li>
+	<!-- sign in and out -->
 	<% if user_signed_in? %>
 	  <li>
 	    <%= link_to 'Edit Account', edit_user_registration_path %>
