@@ -2,6 +2,7 @@ class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart
 
+
   def create
     product = Product.find(params[:product_id])
     @line_item = @cart.line_items.build(product: product, price: product.price)
@@ -13,7 +14,13 @@ class LineItemsController < ApplicationController
       flash.now[:notice] = "could not add #{product.name} to your cart"
       redirect_to :back
     end
+  end
 
-
+  def destroy 
+    @line_item = LineItem.find(params[:id])
+    if @line_item.present?
+      @line_item.destroy
+    end
+    redirect_to :back
   end
 end
