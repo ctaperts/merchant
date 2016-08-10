@@ -17,3 +17,35 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+body {
+	color: #323232;
+}
+
+ // Navbar bg
+.nav-bg-color {
+	background-color: #232f3f;
+}
+// navbar links
+.navbar-default .navbar-nav li a {
+	color: #faebd7;
+}
+.navbar-default .navbar-nav li a:hover {
+	color: #fff;
+}
+// navbar brand
+.navbar-default .navbar-brand {
+	color: #faebd7;
+}
+.navbar-default .navbar-brand:hover {
+	color: #fff;
+}
+// navbar dropdown bg
+.navbar-nav li .dropdown-menu {
+	color: #000;
+background-color: #e7e7e7;
+}
+//navbar dropdown text color
+.nav-dropdown-text{
+	color: #000;
+}
