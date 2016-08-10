@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-
   get '/shop' => 'storefront#index'
   get '/about' => 'storefront#about'
 
   resource :cart, only: [:edit, :update, :destroy]
   resources :line_items, only: [:create, :destroy]
+  resources :orders, only: [:new, :create, :show]
+
 
   devise_for :users
   root 'storefront#index'
