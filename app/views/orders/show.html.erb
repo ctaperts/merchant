@@ -4,8 +4,10 @@
   <div class="row">
 
     <div class="col-sm-4 col-sm-offset-4">
+    <h3>Past Orders</h3>
 
       <% @order.each do |orders| %>
+	<h4>Ship to</h4>
 
 	<p>
 	<strong>
@@ -34,9 +36,42 @@
 	</strong>
 	<%= orders.user_id %>
 	</p>
+	<br><br>
+	<p>
+	<% orders.line_items.each do |product| %>
+	<strong>
+	  Order ID: <%= product.order_id %>
+	</strong>
+	<p>
+	<strong>
+	  Product Name:
+	</strong>
+	  <%= product.product.name %>
+	</p>
+	<p>
+	<strong>
+	  Price:
+	</strong>
+	  <%= number_to_currency(product.price) %>
+	</p>
+	<p>
+	<strong>
+	  Quantity:
+	</strong>
+	  <%= product.product.quantity %>
+	</p>
+	<p>
+	<strong>
+	  Product Description:
+	</strong>
+	  <%= product.product.description %>
+	</p>
+	<% end %>
+	</p>
 	<br>
 	<br>
 
+	<%# TODO add order info %>
       <% end %>
   </div>
 </div>
