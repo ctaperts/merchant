@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.all
+    @order = Order.where(user_id: current_user.id)
   end
 
   def create
