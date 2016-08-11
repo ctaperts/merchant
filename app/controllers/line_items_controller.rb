@@ -23,4 +23,25 @@ class LineItemsController < ApplicationController
     end
     redirect_to :back
   end
+  def update
+    respond_to do |format|
+      if @line_item = LineItem.find(params[:id])
+	@line_item.update(product_params)
+	format.html { redirect_to edit_cart_path, notice: 'Product was successfully updated.' }
+	format.json { render :show, status: :ok, location: @line_item }
+      else
+	format.html { render :edit }
+	format.json { render json: @line_item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  private
+  def product_params
+    params.require(:line_item).permit(:quantity, :cart_id, :order_id)
+  end
+
+
+
 end

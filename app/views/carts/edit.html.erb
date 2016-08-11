@@ -21,7 +21,13 @@
 	    <%= product.product.name %>
 	  </td>
 	  <td>
-	    <%= product.quantity %>
+	    <div class="row">
+	      <div class="col-xs-3 col-sm-4 col-md-5">
+	    <%= simple_form_for(product) do |f| %>
+	      <%= f.input :quantity, input_html: { min: 0 }  %>
+	    <% end %>
+	      </div>
+	    </div>
 	  </td>
 	  <td>
 	    <%= number_to_currency(product.price) %>
