@@ -1,2 +1,42 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-sm-4 col-sm-offset-4">
+
+      <% @order.each do |orders| %>
+
+	<p>
+	<strong>
+	  Name:
+	</strong>
+	<%= orders.name %>
+	</p>
+
+	<p>
+	<strong>
+	  Address:
+	</strong>
+	<%= orders.address %>
+	</p>
+
+	<p>
+	<strong>
+	  Payment Types:
+	</strong>
+	<%= orders.pay_type %>
+	</p>
+
+	<p>
+	<strong>
+	  User:
+	</strong>
+	<%= orders.user_id %>
+	</p>
+	<br>
+	<br>
+
+      <% end %>
+  </div>
+</div>

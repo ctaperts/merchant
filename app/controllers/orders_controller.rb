@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.all
   end
 
   def create
