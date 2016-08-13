@@ -13,11 +13,14 @@
 		    <%= user.encrypted_password %></p>
 		    <p><strong>Sign in count:</strong>
 		    <%= user.sign_in_count %></p>
+		    <p><strong>Current sign in at:</strong>
+		    <%= user.current_sign_in_at %></p>
+		    <p><strong>Last sign in at:</strong>
+		    <%= user.last_sign_in_at %></p>
 		    <p><strong>Current sign in IP:</strong>
 		    <%= user.current_sign_in_ip %></p>
 		    <p><strong>Last sign in IP:</strong>
 		    <%= user.last_sign_in_ip %></p>
-		    ...
 		  </div>
 		  <div class="modal-footer">
 		    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
