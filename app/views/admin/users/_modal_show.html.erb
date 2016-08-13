@@ -1,0 +1,27 @@
+	    <!-- Modal -->
+	    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	      <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    <h4 class="modal-title" id="myModalLabel">More info</h4>
+		  </div>
+		  <div class="modal-body">
+		    <p><strong>E-mail:</strong>
+		    <%= user.email %></p>
+		    <p><strong>encrypted password:</strong>
+		    <%= user.encrypted_password %></p>
+		    <p><strong>Sign in count:</strong>
+		    <%= user.sign_in_count %></p>
+		    <p><strong>Current sign in IP:</strong>
+		    <%= user.current_sign_in_ip %></p>
+		    <p><strong>Last sign in IP:</strong>
+		    <%= user.last_sign_in_ip %></p>
+		    ...
+		  </div>
+		  <div class="modal-footer">
+		    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	      </div>
+	    </div> <!-- End Modal -->
