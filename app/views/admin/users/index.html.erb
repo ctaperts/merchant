@@ -27,7 +27,7 @@
         <td><%# link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	<td>
 	  <!-- Button trigger modal -->
-	    <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal">
+	    <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target=<%= "#modal_info_#{user.id}" %> >
 	      More Info
 	    </button>
 	    <%= render 'modal_show', user: user %>
