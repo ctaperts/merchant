@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+  get 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+  get 'users/:id' => 'users#show', as: :user
+  resources :users
+
   root 'storefront#index'
 
   namespace :admin do
