@@ -27,13 +27,19 @@
         <td><%# link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	<td>
 	  <!-- Button trigger modal -->
-	    <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target=<%= "#modal_info_#{user.id}" %> >
+	    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target=<%= "#modal_edit_#{user.id}" %> >
+	      Edit Account
+	    </button>
+	    </td>
+	    <td>
+	    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target=<%= "#modal_info_#{user.id}" %> >
 	      More Info
 	    </button>
 	    <%= render 'modal_show', user: user %>
+	    <%= render 'modal_edit', user: user %>
 	</td>
 	<% if current_user.try(:admin?) && current_user.id %>
-	  <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></td>
+	  <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
 	<% end %>
       </tr>
     <% end %>
@@ -42,4 +48,11 @@
 
 <br>
 
-<%# link_to 'New Brand', new_admin_user_path %>
+<div style="padding-left:10px;">
+  <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_new" >
+    New Account
+  </button>
+</div>
+<%= render 'modal_new', user: @user %>
+
+
