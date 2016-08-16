@@ -1,70 +1,108 @@
-
+<style>
+.table {
+  margin:0;
+  padding:0;
+}
+.check {
+  width:20px;
+}
+.item-name {
+  width:400px;
+}
+.item-price {
+  width:20%;
+}
+.item-quantity {
+  width:20%;
+}
+</style>
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-sm-4 col-sm-offset-4">
+    <div class="col-sm-10 col-sm-offset-1">
     <h3>Past Orders</h3>
 
-      <% @order.each do |orders| %>
-	<h4>Ship to</h4>
-
+    <% @order.each do |orders| %>
+    <table border="1" class="table">
+      <tr>
+	<th colspan="5">
 	<p>
 	<strong>
 	  Name:
 	</strong>
 	<%= orders.name %>
 	</p>
-
 	<p>
 	<strong>
 	  Address:
 	</strong>
 	<%= orders.address %>
 	</p>
-
 	<p>
 	<strong>
 	  Payment Types:
 	</strong>
 	<%= orders.pay_type %>
 	</p>
-
 	<p>
 	<strong>
 	  User:
 	</strong>
 	<%= orders.user_id %>
 	</p>
-	<br><br>
 	<p>
+	<strong>
+	  Order ID:
+	</strong>
+	<%= orders.id %>
+	</p>
+	</th>
+      </tr>
+      <tr>
+	<th class="check">x</th>
+	<th class="check">x</th>
+      <th class="item-name">Item name</th>
+      <th class="item-quantity">Quantity</th>
+      <th class="item-price">Price</th>
+      </tr>
+    </table>
 	<% orders.line_items.each do |product| %>
-	<strong>
-	  Order ID: <%= product.order_id %>
-	</strong>
+    <table border="1" class="table">
+      <tr>
+	<td class="check">
+	  x
+	</td>
+	<td class="check">
+	  x
+	</td>
+	<td class="item-name">
 	<p>
-	<strong>
-	  Product Name:
-	</strong>
 	  <%= product.product.name %>
 	</p>
+	</td>
+	<td class="item-quantity">
 	<p>
-	<strong>
-	  Price:
-	</strong>
-	  <%= number_to_currency(product.price) %>
-	</p>
-	<p>
-	<strong>
-	  Quantity:
-	</strong>
 	  <%= product.product.quantity %>
 	</p>
+	</td>
+	<td class="item-price">
 	<p>
+	  <%= number_to_currency(product.price) %>
+	</p>
+	</td>
+      </tr>
+      <tr>
+      </tr>
+    </table>
+
+	<!--<p>
 	<strong>
 	  Product Description:
 	</strong>
-	  <%= product.product.description %>
+	  <%#= product.product.description %>
 	</p>
+
+	-->
 	<% end %>
 	</p>
 	<br>
