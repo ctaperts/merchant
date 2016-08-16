@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :routes
   get '/shop' => 'storefront#index'
   get '/about' => 'storefront#about'
   get '/show'	=> 'orders#show'
