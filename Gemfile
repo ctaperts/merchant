@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'will_paginate-bootstrap'
-gem "paperclip", "~> 5.0.0"
-#gem 'paperclip', '~> 4.2.1'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
@@ -13,6 +11,8 @@ gem 'faker'
 gem 'populator'
 
 gem 'figaro'
+#gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 4.2.1'
 gem 'aws-sdk', '< 2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
