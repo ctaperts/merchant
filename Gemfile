@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'will_paginate-bootstrap'
-#gem "paperclip", "~> 5.0.0"
-gem 'paperclip', '~> 4.2.1'
+gem "paperclip", "~> 5.0.0"
+#gem 'paperclip', '~> 4.2.1'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'simple_form'
