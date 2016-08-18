@@ -10,6 +10,8 @@ gem 'stamp'
 gem 'faker'
 gem 'populator'
 
+gem 'seed-fu', '~> 2.3'
+
 gem 'figaro'
 #gem "paperclip", "~> 5.0.0"
 gem 'paperclip', '~> 4.2.1'
