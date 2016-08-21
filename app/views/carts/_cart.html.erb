@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody class="vertical-align">
-      <% LineItem.all.each do |product| %>
+      <% @cart.line_items.each do |product| %>
 	<tr>
 	  <td>
 	    <%= product.product.name %>

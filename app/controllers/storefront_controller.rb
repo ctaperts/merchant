@@ -1,4 +1,4 @@
-class StorefrontController < ApplicationController
+class StorefrontController < LineItemsController
   def index
 
     if params[:search]
