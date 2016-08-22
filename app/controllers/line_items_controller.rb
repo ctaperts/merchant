@@ -8,7 +8,7 @@ class LineItemsController < ApplicationController
     @line_item = @cart.add_product(product.id)
 
     if @line_item.save
-      flash[:notice] = "#{product.name} was successfully added to your cart"
+      #flash[:notice] = "#{product.name} was successfully added to your cart"
       redirect_to shop_path
     else
       flash.now[:notice] = "could not add #{product.name} to your cart"

@@ -45,7 +45,7 @@
 		      <%= product.name %>
 		</h4>
 	      </a>
-	      <%= button_to "Add to cart", line_items_path(product_id: product), class: "btn btn-sm btn-success" %>
+	      <%= button_to "Add to cart", line_items_path(product_id: product), class: "btn btn-sm btn-success", remote: true %>
 	      <br>
 	      <br>
 	    </div>
@@ -75,7 +75,7 @@
 	    </div>
 	    <div class="modal-footer">
 	      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      <%= button_to "Add to cart", line_items_path(product_id: product), class: "btn btn-sm btn-success" %>
+	      <%= button_to "Add to cart", line_items_path(product_id: product), class: "btn btn-sm btn-success", remote: true %>
 	    </div>
 	  </div>
 	</div>
@@ -83,10 +83,11 @@
 
     <% end %>
 
-    </div> <!--end col 10 -->
-    <div class="col-sm-6 col-md-4 col-lg-3 panel panel-default panel-body">
-      <%= render partial: '/carts/cart' %>
-    </div><!-- end col 2 -->
+    </div> <!--end panel body -->
+      <div id="task-form"></div>
+	<div id="tasks">
+	    <%= render partial: '/carts/cart' %>
+	</div>
   </div>
 
 </div>
