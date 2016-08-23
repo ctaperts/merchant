@@ -7,12 +7,18 @@ class LineItemsController < ApplicationController
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id)
 
-    if @line_item.save
-      #flash[:notice] = "#{product.name} was successfully added to your cart"
-      redirect_to shop_path
-    else
-      flash.now[:notice] = "could not add #{product.name} to your cart"
-      redirect_to :back
+    respond_to do |format|
+      if @line_item.save
+	format.html { redirect_to :back }
+	format.js {}
+	format.json { render :back, status: :created, location: @line_item }
+	#flash[:notice] = "#{product.name} was successfully added to your cart"
+	redirect_to shop_path
+      else
+	format.html { render :new }
+	format.js { render :new }
+	format.json { render json: @user_task.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -27,10 +33,12 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item = LineItem.find(params[:id])
 	@line_item.update(product_params)
-	format.html { redirect_to edit_cart_path, notice: 'Product was successfully updated.' }
+	format.html { redirect_to :back }
+	format.js {}
 	format.json { render :show, status: :ok, location: @line_item }
       else
 	format.html { render :edit }
+	format.js { render :back }
 	format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end

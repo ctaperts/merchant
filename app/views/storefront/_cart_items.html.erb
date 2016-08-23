@@ -1,0 +1,24 @@
+    <tbody class="vertical-align">
+      <% @cart.line_items.each do |product| %>
+	<tr>
+	  <td>
+	    <%= product.product.name %>
+	    <%= image_tag product.product.avatar.url(:thumb) %>
+	  </td>
+	  <td>
+	    <div class="row">
+	      <div class="col-md-2 col-lg-3">
+	    <%= simple_form_for(product) do |f| %>
+	      <%= f.input :quantity, input_html: { min: 0, style: 'width:60px' }, label: false, class: "pull-left"  %>
+	      <%= f.button :submit, "Apply", :class => "btn-primary" %>
+	    <% end %>
+	      </div>
+	    </div>
+	  </td>
+	  <td>
+	    <%= link_to fa_icon("times-circle", text: "Remove"), line_item_path(product.id), method: :delete, class: "btn btn-sm btn-danger vertical-align" %>
+	  </td>
+	</tr>
+      <% end %>
+	<th></th>
+    </tbody>
