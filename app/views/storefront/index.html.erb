@@ -12,6 +12,11 @@
   <% end %>
 </span>
 
+    <div id="tasks">
+      <p> HELLO WORLD!</p>
+      <p> HELLO WORLD!</p>
+      <p> HELLO WORLD!</p>
+    </div>
 <h1>Welcome to the Stor-tastic!</h1>
 <p>Where all of your awesome products dreams come true</p>
 
@@ -45,7 +50,7 @@
 		      <%= product.name %>
 		</h4>
 	      </a>
-	      <%= button_to "Add to cart", line_items_path(product_id: product), class: "btn btn-sm btn-success" %>
+	      <%= button_to "Add to cart", line_items_path(product_id: product), class: "btn btn-sm btn-success", remote: true %>
 	      <br>
 	      <br>
 	    </div>

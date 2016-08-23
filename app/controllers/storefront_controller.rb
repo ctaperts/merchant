@@ -19,7 +19,6 @@ class StorefrontController < LineItemsController
   end
 
   def about
-
   end
 
 end
