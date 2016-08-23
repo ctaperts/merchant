@@ -9,7 +9,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-	format.html { redirect_to :back }
+	format.html
 	format.js {}
 	format.json { render :back, status: :created, location: @line_item }
 	#flash[:notice] = "#{product.name} was successfully added to your cart"
