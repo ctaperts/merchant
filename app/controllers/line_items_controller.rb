@@ -11,8 +11,9 @@ class LineItemsController < ApplicationController
       if @line_item.save
 	format.html { redirect_to :back }
 	format.js {}
-	format.json { render '/storefront/cart_items', status: :created, location: @line_item }
+	format.json { render :back, status: :created, location: @line_item }
 	#flash[:notice] = "#{product.name} was successfully added to your cart"
+	redirect_to shop_path
       else
 	format.html { render :new }
 	format.js { render :new }
