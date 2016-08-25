@@ -14,6 +14,15 @@ config.paperclip_defaults = {
   }
 }
 
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: Rails.application.secrets.domain_name,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    username: Rails.application.secrets.email_provider_username,
+    password: Rails.application.secrets.email_provider_password
+  }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -70,7 +79,10 @@ config.paperclip_defaults = {
 
   #TO DO Set default URL for action mailer in production
   # Default URL for action mailer
-  config.action_mailer.default_url_options = { host: 'actual host or domain'}
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.domain_name }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
