@@ -20,7 +20,7 @@ config.paperclip_defaults = {
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    username: Rails.application.secrets.email_provider_username,
+    user_name: Rails.application.secrets.email_provider_username,
     password: Rails.application.secrets.email_provider_password
   }
 
