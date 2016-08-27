@@ -1,4 +1,5 @@
 class OrderConfirmationMailer < ApplicationMailer
+  include CurrentCart
   def send_order_confirmation(user, order)
     @user = user
     @order = order
