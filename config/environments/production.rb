@@ -77,6 +77,7 @@ config.paperclip_defaults = {
   # config.active_job.queue_name_prefix = "merchant_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+
   #TO DO Set default URL for action mailer in production
   # Default URL for action mailer
   config.action_mailer.default_url_options = { host: Rails.application.secrets.domain_name }
