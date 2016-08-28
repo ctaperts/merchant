@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :routes
   get '/shop' => 'storefront#index'
   get '/about' => 'storefront#about'
   get '/show'	=> 'orders#show'
+  get '/routes/history' => 'routes#history'
 
   resource :cart, only: [:edit, :update, :destroy]
   resources :line_items, only: [:create, :destroy, :update]
   resources :orders, only: [:new, :create, :show]
+  resources :routes do
+    put :delivered, on: :member
+    put :not_delivered, on: :member
+  end
+
 
 
   devise_for :users

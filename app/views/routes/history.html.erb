@@ -1,0 +1,47 @@
+<h1>Routes History</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Truck</th>
+      <th>Description</th>
+      <th>Order Name</th>
+      <th>Order Address</th>
+      <th>Order ID</th>
+      <th>Delivered</th>
+      <th>Delivered On</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.where(delivered: true).order('delivered_on DESC').each do |route| %>
+      <tr>
+        <td><%= route.truck %></td>
+        <td><%= route.description %></td>
+        <td><%= route.order.name %></td>
+        <td><%= route.order.address %></td>
+        <td><%= route.order.id %></td>
+	<% if route.delivered == true %>
+	<td><%= link_to 'Delivered', 
+	  not_delivered_route_path(route),
+	  method: :put
+	  %></td>
+      <% else %>
+	<td><%= link_to 'Not Delivered', 
+	  delivered_route_path(route),
+	  method: :put
+	  %></td>
+      <% end %>
+        <td><%= route.delivered_on.stamp("2:00am on Saturday, April 15th 2000") %></td>
+        <td><%= link_to 'Show', route %></td>
+        <td><%= link_to 'Edit', edit_route_path(route) %></td>
+	<td><%= link_to 'Destroy', 
+	  route, 
+	  method: :delete, 
+	  data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   include Subtotal
   belongs_to :user
   has_many :line_items, dependent: :destroy
+  has_many :routes
 
 
   PAYMENT_TYPES = ['Credit Card', 'Check', 'COD', 'Cash', 'PayPal']
