@@ -25,7 +25,8 @@
 	<% if route.delivered == true %>
 	<td><%= link_to 'Delivered', 
 	  not_delivered_route_path(route),
-	  method: :put
+	  method: :put,
+	  data: { confirm: "Are you sure? this will move\nTruck: #{route.truck}\nDescription: #{route.description}\nOrder Address: #{route.order.address}\nOrder Name: #{route.order.name}\nOrder ID: #{route.order.id}\nto the current routes" }
 	  %></td>
       <% else %>
 	<td><%= link_to 'Not Delivered', 
