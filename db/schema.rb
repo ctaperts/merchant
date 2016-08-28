@@ -75,9 +75,9 @@ ActiveRecord::Schema.define(version: 20160828021846) do
     t.integer  "truck"
     t.string   "description"
     t.integer  "order_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.boolean  "route_delivered"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "route_delivered", default: false
     t.index ["order_id"], name: "index_routes_on_order_id"
   end
 
