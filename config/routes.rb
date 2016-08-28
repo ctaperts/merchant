@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/shop' => 'storefront#index'
   get '/about' => 'storefront#about'
   get '/show'	=> 'orders#show'
+  get 'routes/route_delivered' => 'routes#route_delivered'
 
   resource :cart, only: [:edit, :update, :destroy]
   resources :line_items, only: [:create, :destroy, :update]

@@ -61,6 +61,13 @@ class RoutesController < ApplicationController
     end
   end
 
+  def route_delivered
+    @route = Route.find(params[:id])
+    @route.update_attributes(route_delivered: true)
+    redirect_to routes_path
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
