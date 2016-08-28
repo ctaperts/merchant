@@ -1,10 +1,13 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
+  before_action :route_all, only: [:index, :history] #@routes = Route.all
 
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+  end
+
+  def history
   end
 
   # GET /routes/1
@@ -61,15 +64,28 @@ class RoutesController < ApplicationController
     end
   end
 
-  def route_delivered
+  def not_delivered
     @route = Route.find(params[:id])
-    @route.update_attributes(route_delivered: true)
+    @route.update_attributes(delivered: false)
+    @route.update_attributes(delivered_on: nil)
+    redirect_to routes_path
+  end
+
+  def delivered
+    @route = Route.find(params[:id])
+    @route.update_attributes(delivered: true)
+    @route.update_attributes(delivered_on: Time.now)
     redirect_to routes_path
   end
 
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def route_all
+      @routes = Route.all
+    end
+
     def set_route
       @route = Route.find(params[:id])
     end

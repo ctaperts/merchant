@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828021846) do
+ActiveRecord::Schema.define(version: 20160828172522) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -75,9 +75,10 @@ ActiveRecord::Schema.define(version: 20160828021846) do
     t.integer  "truck"
     t.string   "description"
     t.integer  "order_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "route_delivered", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "delivered",    default: false
+    t.datetime "delivered_on"
     t.index ["order_id"], name: "index_routes_on_order_id"
   end
 
