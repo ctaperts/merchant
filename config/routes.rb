@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :routes do
     put :delivered, on: :member
     put :not_delivered, on: :member
+    put :not_loaded, on: :member
+    put :loaded, on: :member
   end
 
 

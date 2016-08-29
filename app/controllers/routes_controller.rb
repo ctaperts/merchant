@@ -78,6 +78,20 @@ class RoutesController < ApplicationController
     redirect_to routes_path
   end
 
+  def not_loaded
+    @route = Route.find(params[:id])
+    @route.update_attributes(truck_loaded: false)
+    @route.update_attributes(truck_loaded_on: nil)
+    redirect_to routes_path
+  end
+
+  def loaded
+    @route = Route.find(params[:id])
+    @route.update_attributes(truck_loaded: true)
+    @route.update_attributes(truck_loaded_on: Time.now)
+    redirect_to routes_path
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
