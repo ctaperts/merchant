@@ -2,8 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :truck %>
-    <%= f.input :description %>
+    <%# f.input :truck %>
+    <%# f.input :description %>
+    <%= f.association :truck, label_method: lambda { |truck| "#{truck.number} | #{truck.description}" } %>
     <%= f.association :order %>
   </div>
 

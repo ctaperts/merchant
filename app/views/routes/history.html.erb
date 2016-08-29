@@ -17,8 +17,8 @@
   <tbody>
     <% @routes.where(delivered: true).order('delivered_on DESC').each do |route| %>
       <tr>
-        <td><%= route.truck %></td>
-        <td><%= route.description %></td>
+        <td><%= route.truck.number %></td>
+        <td><%= route.truck.description %></td>
         <td><%= route.order.name %></td>
         <td><%= route.order.address %></td>
         <td><%= route.order.id %></td>
@@ -26,7 +26,7 @@
 	<td><%= link_to 'Delivered', 
 	  not_delivered_route_path(route),
 	  method: :put,
-	  data: { confirm: "Are you sure? this will move\nTruck: #{route.truck}\nDescription: #{route.description}\nOrder Address: #{route.order.address}\nOrder Name: #{route.order.name}\nOrder ID: #{route.order.id}\nto the current routes" }
+	  data: { confirm: "Are you sure? this will move\nTruck: #{route.truck.number}\nDescription: #{route.truck.description}\nOrder Address: #{route.order.address}\nOrder Name: #{route.order.name}\nOrder ID: #{route.order.id}\nto the current routes" }
 	  %></td>
       <% else %>
 	<td><%= link_to 'Not Delivered', 
