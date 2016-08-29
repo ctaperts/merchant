@@ -10,6 +10,7 @@
       <th>Order Name</th>
       <th>Order Address</th>
       <th>Order ID</th>
+      <th>Loaded Status</th>
       <th>Delivery Status</th>
       <th colspan="3"></th>
     </tr>
@@ -23,17 +24,22 @@
         <td><%= route.order.name %></td>
         <td><%= route.order.address %></td>
         <td><%= route.order.id %></td>
-	<% if route.delivered == true %>
-	<td><%= link_to 'Delivered', 
-	  not_delivered_route_path(route),
-	  method: :put
+	<% if route.truck_loaded == true %>
+	<td><%= link_to 'Truck Loaded', 
+	  not_loaded_route_path(route),
+	  method: :put,
+	  data: { confirm: "Are you sure?" }
 	  %></td>
       <% else %>
+	<td><%= link_to 'Truck Not Loaded', 
+	  loaded_route_path(route),
+	  method: :put
+	  %></td>
+      <% end %>
 	<td><%= link_to 'Not Delivered', 
 	  delivered_route_path(route),
 	  method: :put
 	  %></td>
-      <% end %>
         <td><%= link_to 'Show', route %></td>
         <td><%= link_to 'Edit', edit_route_path(route) %></td>
 	<td><%= link_to 'Destroy', 
@@ -59,7 +65,8 @@
       <th>Order Name</th>
       <th>Order Address</th>
       <th>Order ID</th>
-      <th>Delivered Status</th>
+      <th>Loaded Status</th>
+      <th>Delivery Status</th>
       <th>Delivered On</th>
       <th colspan="3"></th>
     </tr>
@@ -73,18 +80,23 @@
         <td><%= route.order.name %></td>
         <td><%= route.order.address %></td>
         <td><%= route.order.id %></td>
-	<% if route.delivered == true %>
+	<% if route.truck_loaded == true %>
+	<td><%= link_to 'Truck Loaded', 
+	  not_loaded_route_path(route),
+	  method: :put,
+	  data: { confirm: "Are you sure?" }
+	  %></td>
+      <% else %>
+	<td><%= link_to 'Truck Not Loaded', 
+	  loaded_route_path(route),
+	  method: :put
+	  %></td>
+      <% end %>
 	<td><%= link_to 'Delivered', 
 	  not_delivered_route_path(route),
 	  method: :put,
 	  data: { confirm: "Are you sure? this will move\nTruck: #{route.truck.number}\nDescription: #{route.truck.description}\nOrder Address: #{route.order.address}\nOrder Name: #{route.order.name}\nOrder ID: #{route.order.id}\nto the current routes" }
 	  %></td>
-      <% else %>
-	<td><%= link_to 'Not Delivered', 
-	  delivered_route_path(route),
-	  method: :put
-	  %></td>
-      <% end %>
         <td><%= route.delivered_on.stamp("2:00am on Saturday, April 15th 2000") %></td>
         <td><%= link_to 'Show', route %></td>
         <td><%= link_to 'Edit', edit_route_path(route) %></td>
