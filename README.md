@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ctaperts/merchant.svg?branch=master)(http://merchant-produce.heroku.com/)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
