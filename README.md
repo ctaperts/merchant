@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ctaperts/merchant.svg?branch=master)(http://merchant-produce.heroku.com/)]
+[![Build Status](https://travis-ci.org/ctaperts/merchant.svg?branch=master)](http://merchant-produce.heroku.com/)
 
 # README
 
