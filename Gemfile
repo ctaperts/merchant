@@ -55,6 +55,8 @@ group :development, :test do
   gem 'pry-byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
 
 end
 
@@ -68,7 +70,13 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener'
+  gem 'guard-rspec', require: false
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'capybara'
+  gem 'launchy'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

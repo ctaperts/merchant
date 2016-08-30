@@ -1,9 +1,16 @@
+es:
+  only:
+    - 'master'
+
 language: ruby
+
 rvm:
-- 2.0.0
-- 1.9.3
-- jruby-19mode
-- rbx-2
+  - 2.3.1
+
+# uncomment this line if using rspec instead of minitest:
+script: bundle exec rspec spec
+
 script:
   - bundle exec rake db:setup
-  - bundle exec rake spec
+  # - bundle exec rake db:migrate
+  - bundle exec rake test
