@@ -1,0 +1,1 @@
+json.array! @truck_histories, partial: 'truck_histories/truck_history', as: :truck_history
