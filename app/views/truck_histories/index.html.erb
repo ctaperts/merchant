@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Truck Histories</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Maintenance date</th>
+      <th>Maintenance info</th>
+      <th>Maintenance file</th>
+      <th>Maintenance file size</th>
+      <th>Maintenance passing</th>
+      <th>Truck</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @truck_histories.each do |truck_history| %>
+      <tr>
+        <td><%= truck_history.maintenance_date %></td>
+        <td><%= truck_history.maintenance_info %></td>
+        <td><%= truck_history.maintenance_file %></td>
+        <td><%= truck_history.maintenance_file_size %></td>
+        <td><%= truck_history.maintenance_passing %></td>
+        <td><%= truck_history.truck.number %></td>
+        <td><%= link_to 'Show', truck_history %></td>
+        <td><%= link_to 'Edit', edit_truck_history_path(truck_history) %></td>
+        <td><%= link_to 'Destroy', truck_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Truck History', new_truck_history_path %>

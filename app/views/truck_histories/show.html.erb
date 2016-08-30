@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maintenance date:</strong>
+  <%= @truck_history.maintenance_date %>
+</p>
+
+<p>
+  <strong>Maintenance info:</strong>
+  <%= @truck_history.maintenance_info %>
+</p>
+
+<p>
+  <strong>Maintenance file:</strong>
+  <%= @truck_history.maintenance_file %>
+</p>
+
+<p>
+  <strong>Maintenance file size:</strong>
+  <%= @truck_history.maintenance_file_size %>
+</p>
+
+<p>
+  <strong>Maintenance passing:</strong>
+  <%= @truck_history.maintenance_passing %>
+</p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @truck_history.truck %>
+</p>
+
+<%= link_to 'Edit', edit_truck_history_path(@truck_history) %> |
+<%= link_to 'Back', truck_histories_path %>

@@ -1,0 +1,1 @@
+json.partial! "truck_histories/truck_history", truck_history: @truck_history

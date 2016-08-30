@@ -1,0 +1,2 @@
+json.extract! truck_history, :id, :maintenance_date, :maintenance_info, :maintenance_file, :maintenance_file_size, :maintenance_passing, :truck_id, :created_at, :updated_at
+json.url truck_history_url(truck_history, format: :json)

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :truck_histories
   resources :trucks
   get '/shop' => 'storefront#index'
   get '/about' => 'storefront#about'
