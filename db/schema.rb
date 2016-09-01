@@ -87,12 +87,10 @@ ActiveRecord::Schema.define(version: 20160829171339) do
   create_table "truck_histories", force: :cascade do |t|
     t.datetime "maintenance_date"
     t.string   "maintenance_info"
-    t.string   "maintenance_file"
-    t.string   "maintenance_file_size"
     t.boolean  "maintenance_passing"
     t.integer  "truck_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["truck_id"], name: "index_truck_histories_on_truck_id"
   end
 
