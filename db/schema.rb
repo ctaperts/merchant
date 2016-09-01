@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829171339) do
+ActiveRecord::Schema.define(version: 20160901060021) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -89,8 +89,12 @@ ActiveRecord::Schema.define(version: 20160829171339) do
     t.string   "maintenance_info"
     t.boolean  "maintenance_passing"
     t.integer  "truck_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
     t.index ["truck_id"], name: "index_truck_histories_on_truck_id"
   end
 

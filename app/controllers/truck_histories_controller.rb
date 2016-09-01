@@ -69,6 +69,6 @@ class TruckHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_history_params
-      params.require(:truck_history).permit(:maintenance_date, :maintenance_info, :maintenance_file, :maintenance_file_size, :maintenance_passing, :truck_id)
+      params.require(:truck_history).permit(:maintenance_date, :maintenance_info, :document, :maintenance_passing, :truck_id)
     end
 end

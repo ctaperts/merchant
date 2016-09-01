@@ -4,6 +4,8 @@
   <div class="form-inputs">
     <%= f.input :maintenance_date %>
     <%= f.input :maintenance_info %>
+    <%= f.input :document, as: :file %>
+     <%= link_to "Link to PDF", @truck_history.document.url %>
     <%= f.input :maintenance_passing %>
     <%= f.association :truck %>
   </div>
