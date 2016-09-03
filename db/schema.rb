@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901060021) do
+ActiveRecord::Schema.define(version: 20160903051258) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -61,12 +61,17 @@ ActiveRecord::Schema.define(version: 20160901060021) do
     t.text     "description"
     t.integer  "category_id"
     t.integer  "brand_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.decimal  "pounds"
+    t.decimal  "price_per_pound"
+    t.decimal  "case"
+    t.decimal  "price_per_case"
+    t.integer  "item_amount_type",    default: 1
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
