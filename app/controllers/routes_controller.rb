@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :edit, :update, :destroy]
-  before_action :route_all, only: [:index, :history] #@routes = Route.all
+  before_action :set_route, only: [:show, :edit, :update, :destroy] # @route = Route.find(params[:id])
+  before_action :route_all, only: [:index, :history] # @routes = Route.all
 
   # GET /routes
   # GET /routes.json
