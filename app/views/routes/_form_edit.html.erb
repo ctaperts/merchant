@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@route) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%# f.input :truck %>
+    <%# f.input :description %>
+    <%= f.association :truck, label_method: lambda { |truck| "Truck ##{truck.number} | #{truck.description}" } %>
+    <strong>
+      Order info:
+    </strong>
+    <br>
+    Order id: <%= @route.order_id %><br>
+    Order name: <%= @route.order.name %><br>
+    Order address: <%= @route.order.address %><br>
+    Order user e-mail: <%= @route.order.user.email %><br>
+    <br>
+    <%= f.hidden_field :order, collection: Order.order('created_at DESC'), label_method: lambda { |order| "Created: #{order.created_at.stamp('1:00pm on Moday, June 28th')} | User: #{order.user.email} | Order ID: #{order.id} | Order Name: #{order.name} | Order Address: #{order.address}" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
