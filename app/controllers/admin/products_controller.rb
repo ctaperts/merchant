@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  include ProductsHelper
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 

@@ -27,7 +27,14 @@ Rails.application.routes.draw do
   root 'storefront#index'
 
   namespace :admin do
-    resources :products
+    resources :products do
+      put :per_item, on: :member
+      put :per_item_remove, on: :member
+      put :per_pound, on: :member
+      put :per_pound_remove, on: :member
+      put :per_case, on: :member
+      put :per_case_remove, on: :member
+    end
     resources :brands
     resources :categories
     resources :users
