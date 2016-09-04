@@ -1,19 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Truck:</strong>
-  <%= @route.truck.number %>
-</p>
+<div class="container-fluid">
+  <div class="row">
 
-<p>
-  <strong>Description:</strong>
-  <%= @route.truck.description %>
-</p>
+    <div class="col-sm-4 col-sm-offset-4">
 
-<p>
-  <strong>Order:</strong>
-  <%= @route.order.id %>
-</p>
+      <p>
+	<strong>Truck:</strong>
+	<%= @route.truck.number %>
+      </p>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+      <p>
+	<strong>Description:</strong>
+	<%= @route.truck.description %>
+      </p>
+
+      <p>
+	<strong>Order:</strong>
+	<%= @route.order.id %>
+      </p>
+
+      <%= link_to 'Edit', edit_route_path(@route) %> |
+      <%= link_to 'Back', routes_path %>
+    </div>
+  </div>
+</div>

@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%# f.input :truck %>
     <%# f.input :description %>
-    <%= f.association :truck, label_method: lambda { |truck| "#{truck.number} | #{truck.description}" } %>
-    <%= f.association :order %>
+    <%= f.association :truck, label_method: lambda { |truck| "Truck ##{truck.number} | #{truck.description}" } %>
+    <%= f.association :order, label_method: lambda { |order| "Created: #{order.created_at.stamp('1:00pm on Moday, June 28th')} | User: #{order.user.email} | Order ID: #{order.id} | Order Name: #{order.name} | Order Address: #{order.address}" } %>
   </div>
 
   <div class="form-actions">
