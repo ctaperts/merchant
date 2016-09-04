@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+  include RoutesHelper
   before_action :set_route, only: [:show, :edit, :update, :destroy] # @route = Route.find(params[:id])
   before_action :route_all, only: [:index, :history] # @routes = Route.all
 
@@ -62,34 +63,6 @@ class RoutesController < ApplicationController
       format.html { redirect_to routes_url, notice: 'Route was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def not_delivered
-    @route = Route.find(params[:id])
-    @route.update_attributes(delivered: false)
-    @route.update_attributes(delivered_on: nil)
-    redirect_to routes_path
-  end
-
-  def delivered
-    @route = Route.find(params[:id])
-    @route.update_attributes(delivered: true)
-    @route.update_attributes(delivered_on: Time.now)
-    redirect_to routes_path
-  end
-
-  def not_loaded
-    @route = Route.find(params[:id])
-    @route.update_attributes(truck_loaded: false)
-    @route.update_attributes(truck_loaded_on: nil)
-    redirect_to routes_path
-  end
-
-  def loaded
-    @route = Route.find(params[:id])
-    @route.update_attributes(truck_loaded: true)
-    @route.update_attributes(truck_loaded_on: Time.now)
-    redirect_to routes_path
   end
 
 
