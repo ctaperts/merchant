@@ -19,6 +19,10 @@ class OrdersController < ApplicationController
   def show
     @order = Order.where(user_id: current_user.id)
   end
+  def show_all
+    @order = Order.all.reverse_order
+  end
+  #TODO set before action
 
   def create
     @order = Order.new(order_params)
