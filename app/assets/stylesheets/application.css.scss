@@ -14,9 +14,14 @@
  *= require_self
  */
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.table {
+  margin-bottom: 0px;
+}
 
 body {
 	color: #323232;
