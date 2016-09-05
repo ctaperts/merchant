@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.where(user_id: current_user.id)
+    @order = Order.where(user_id: current_user.id).reverse_order
   end
   def show_all
     @order = Order.all.reverse_order
