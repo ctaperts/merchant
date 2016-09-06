@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :loadings
+  resources :locations
   resources :truck_histories
   resources :trucks
   get '/shop' => 'storefront#index'

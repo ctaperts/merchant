@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
   has_many :line_items
+  belongs_to :location
   before_destroy :ensure_not_referenced_by_any_line_item
 
   has_attached_file :avatar,
@@ -13,7 +14,7 @@ class Product < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates_attachment_size :avatar, less_than: 3.megabytes, unless: Proc.new { |m| m[:avatar_file_name].blank?}
 
-  validates_presence_of :name, :brand, :category 
+  validates_presence_of :name, :brand, :category, :location
   validates_numericality_of :price, greater_than_or_equal_to: 0
   validates_numericality_of :quantity, greater_than_or_equal_to: 0
 

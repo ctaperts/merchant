@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Loadings</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Check</th>
+      <th>Quality check</th>
+      <th>Check by</th>
+      <th>Quality check by</th>
+      <th>Check on</th>
+      <th>Check quality on</th>
+      <th>Line items</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loadings.each do |loading| %>
+      <tr>
+        <td><%= loading.check %></td>
+        <td><%= loading.quality_check %></td>
+        <td><%= loading.check_by %></td>
+        <td><%= loading.quality_check_by %></td>
+        <td><%= loading.check_on %></td>
+        <td><%= loading.check_quality_on %></td>
+        <td><%= loading.line_items %></td>
+        <td><%= link_to 'Show', loading %></td>
+        <td><%= link_to 'Edit', edit_loading_path(loading) %></td>
+        <td><%= link_to 'Destroy', loading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loading', new_loading_path %>

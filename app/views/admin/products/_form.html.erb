@@ -8,70 +8,7 @@
 	<%= f.input :name, label: false, placeholder: "Name" %>
 
 
-	<div class="container-fluid">
-	  <div class="row">
-	    <div class="col-md-4 text-center">
-	<br>
-	<% case @product.item_amount_type %>
-	  <% when 0, 2, 4, 6 %>
-	  <%= link_to "Add Per Item", 
-	    per_item_admin_product_path(@product),
-	    class: 'btn btn-default',
-	    method: :put
-	    %>
-	  <% when 1, 3, 5, 7 %>
-	  <%= link_to "Remove Per Item", 
-	    per_item_remove_admin_product_path(@product),
-	    class: 'btn btn-danger',
-	    method: :put
-	    %>
-	<% end %>
-	<br>
-	    </div>
-
-	    <div class="col-md-4 text-center">
-	<br>
-	<% case @product.item_amount_type %>
-	  <% when 0, 1, 4, 5 %>
-	  <%= link_to "Add Per Pound", 
-	    per_pound_admin_product_path(@product),
-	    class: 'btn btn-default',
-	    method: :put
-	    %>
-	  <% when 2, 3, 6, 7 %>
-	  <%= link_to "Remove Per Pound", 
-	    per_pound_remove_admin_product_path(@product),
-	    class: 'btn btn-danger',
-	    method: :put
-	    %>
-	<% end %>
-	<br>
-	    </div>
-
-	    <div class="col-md-4 text-center">
-	<br>
-	<% case @product.item_amount_type %>
-	  <% when 0, 1, 2, 3 %>
-	  <%= link_to "Add Per Case", 
-	    per_case_admin_product_path(@product),
-	    class: 'btn btn-default',
-	    method: :put
-	    %>
-	  <% when 4, 5, 6, 7 %>
-	  <%= link_to "Remove Per Case", 
-	    per_case_remove_admin_product_path(@product),
-	    class: 'btn btn-danger',
-	    method: :put
-	    %>
-	<% end %>
-	<br>
-	<br>
-	    </div>
-	  </div>
-	</div>
-
-
-
+    <%= render 'form_product_amount_type' %>
 
 	<% case @product.item_amount_type %>
 	<% when 1, 3, 5, 7 %>
@@ -91,9 +28,12 @@
 	  <%= f.input :case, input_html: { min: 0 }  %>
 	<% end %>
 
+
 	<%= f.input :description %>
+	<%= f.association :location, hint: 'Required' %>
 	<%= f.association :category, hint: 'Required' %>
 	<%= f.association :brand, hint: 'Required' %>
+
       </div>
       <p>
 	<% if @product.avatar.exists? %>
