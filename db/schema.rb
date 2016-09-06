@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905194756) do
+ActiveRecord::Schema.define(version: 20160906043500) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,27 @@ ActiveRecord::Schema.define(version: 20160905194756) do
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
+  create_table "loadings", force: :cascade do |t|
+    t.boolean  "check"
+    t.boolean  "quality_check"
+    t.string   "check_by"
+    t.string   "quality_check_by"
+    t.datetime "check_on"
+    t.datetime "check_quality_on"
+    t.integer  "line_items_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["line_items_id"], name: "index_loadings_on_line_items_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_locations_on_product_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
@@ -75,9 +96,11 @@ ActiveRecord::Schema.define(version: 20160905194756) do
     t.decimal  "price_per_pound"
     t.decimal  "case"
     t.decimal  "price_per_case"
-    t.integer  "item_amount_type",    default: 1
+    t.integer  "item_amount_type",    default: 7
+    t.integer  "location_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["location_id"], name: "index_products_on_location_id"
   end
 
   create_table "routes", force: :cascade do |t|

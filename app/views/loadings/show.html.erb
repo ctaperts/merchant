@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Check:</strong>
+  <%= @loading.check %>
+</p>
+
+<p>
+  <strong>Quality check:</strong>
+  <%= @loading.quality_check %>
+</p>
+
+<p>
+  <strong>Check by:</strong>
+  <%= @loading.check_by %>
+</p>
+
+<p>
+  <strong>Quality check by:</strong>
+  <%= @loading.quality_check_by %>
+</p>
+
+<p>
+  <strong>Check on:</strong>
+  <%= @loading.check_on %>
+</p>
+
+<p>
+  <strong>Check quality on:</strong>
+  <%= @loading.check_quality_on %>
+</p>
+
+<p>
+  <strong>Line items:</strong>
+  <%= @loading.line_items %>
+</p>
+
+<%= link_to 'Edit', edit_loading_path(@loading) %> |
+<%= link_to 'Back', loadings_path %>
