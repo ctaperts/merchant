@@ -8,7 +8,7 @@
     <%= f.input :quality_check_by %>
     <%= f.input :check_on %>
     <%= f.input :check_quality_on %>
-    <%# f.association :line_items %>
+    <%= f.association :line_items, label_method: lambda { |item| "Item #{item.product.name} Quantity #{item.order.try(:id)}" } %>
   </div>
 
   <div class="form-actions">

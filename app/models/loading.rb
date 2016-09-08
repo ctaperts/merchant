@@ -1,3 +1,3 @@
 class Loading < ApplicationRecord
-  belongs_to :line_items
+  has_many :line_items
 end

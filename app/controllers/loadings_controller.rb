@@ -69,6 +69,6 @@ class LoadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loading_params
-      params.require(:loading).permit(:check, :quality_check, :check_by, :quality_check_by, :check_on, :check_quality_on, :line_items_id)
+      params.require(:loading).permit(:check, :quality_check, :check_by, :quality_check_by, :check_on, :check_quality_on, :line_item_id)
     end
 end
