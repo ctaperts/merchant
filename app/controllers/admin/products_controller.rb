@@ -38,7 +38,17 @@ class Admin::ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    # When creating a new item if price or quantity exists change item_amount_type 
     @product = Product.new(product_params)
+     if @product.quantity != nil || @product.price != nil
+       @product.item_amount_type +=1
+     end
+     if @product.pounds != nil || @product.price_per_pound != nil
+       @product.item_amount_type +=2
+     end
+     if @product.case != nil || @product.price_per_case != nil
+       @product.item_amount_type +=4
+     end
 
     respond_to do |format|
       if @product.save
