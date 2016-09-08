@@ -30,9 +30,9 @@
 
 
 	<%= f.input :description %>
-	<%= f.association :location, hint: 'Required' %>
-	<%= f.association :category, hint: 'Required' %>
-	<%= f.association :brand, hint: 'Required' %>
+	<%= f.association :location, hint: 'Required', include_blank: false %>
+	<%= f.association :category, hint: 'Required', include_blank: false %>
+	<%= f.association :brand, hint: 'Required', include_blank: false %>
 
       </div>
       <p>
