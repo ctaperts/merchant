@@ -1,39 +1,127 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
 
-<h1>Loadings</h1>
+    <div class="col-sm-10 col-sm-offset-1">
+    <h3>All Orders</h3>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Check</th>
-      <th>Quality check</th>
-      <th>Check by</th>
-      <th>Quality check by</th>
-      <th>Check on</th>
-      <th>Check quality on</th>
-      <th>Line items</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @loadings.each do |loading| %>
+    <% @order.each do |orders| %>
+    <table border="1" class="table table-order">
       <tr>
-        <td><%= loading.check %></td>
-        <td><%= loading.quality_check %></td>
-        <td><%= loading.check_by %></td>
-        <td><%= loading.quality_check_by %></td>
-        <td><%= loading.check_on %></td>
-        <td><%= loading.check_quality_on %></td>
-        <td><%= loading.line_items %></td>
-        <td><%= link_to 'Show', loading %></td>
-        <td><%= link_to 'Edit', edit_loading_path(loading) %></td>
-        <td><%= link_to 'Destroy', loading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<th colspan="6">
+	<p>
+	<strong>
+	  Name:
+	</strong>
+	<%= orders.name %>
+	</p>
+	<p>
+	<strong>
+	  Address:
+	</strong>
+	<%= orders.address %>
+	</p>
+	<p>
+	<strong>
+	  Payment Types:
+	</strong>
+	<%= orders.pay_type %>
+	</p>
+	<p>
+	<strong>
+	  User:
+	</strong>
+	<%= orders.user_id %>
+	</p>
+	<p>
+	<strong>
+	  Order ID:
+	</strong>
+	<%= orders.id %>
+	</p>
+	</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+	<th class="check icon" title="Load Check">LC</th>
+	<th class="check icon" title="Quality Check">QC</th>
+      <th class="item-type">Type</th>
+      <th class="item-name">Item name</th>
+      <th class="item-quantity">Quantity</th>
+      <th class="item-price">Price</th>
+      </tr>
+    </table>
+	<% orders.line_items.each do |line_item| %>
+    <table border="1" class="table table-order">
+      <tr>
+	<td class="check icon">
+	  <%= link_to fa_icon("check-square-o"), 
+	  load_check_loading_path(line_item),
+	  method: :put
+	  %>
+	</td>
+	<td class="check icon">
+	  <i class="fa fa-square-o" aria-hidden="true"></i>
+	</td>
+	<td class="item-type">
+	<p>
+	  <%= line_item.product.category.name %>
+	</p>
+	</td>
+	<td class="item-name">
+	<p>
+	  <%= line_item.product.brand.name %> - 
+	  <%= line_item.product.name %>
+	</p>
+	</td>
+	<td class="item-quantity">
+	<p>
+	<% case line_item.product.item_amount_type %>
+	<% when 1, 3, 5, 7 %>
+	  <% if line_item.quantity > 0 %>
+	    Items: <%= line_item.quantity %><br>
+	  <% end %>
+	<% end %>
+	<% case line_item.product.item_amount_type %>
+	<% when 2, 3, 6, 7 %>
+	  <% if line_item.pounds.to_f > 0 %>
+	    Pounds: <%= line_item.pounds %><br>
+	  <% end %>
+	<% end %>
+	<% case line_item.product.item_amount_type %>
+	<% when 4, 5, 6, 7 %>
+	  <% if line_item.case.to_f > 0 %>
+	    Cases: <%= line_item.case %>
+	  <% end %>
+	<% end %>
+	</p>
+	</td>
+	<td class="item-price">
+	<p>
+	  <%= number_to_currency(line_item.price) %>
+	</p>
+	</td>
+      </tr>
+      <tr>
+      </tr>
+    </table>
 
-<br>
+	<!--<p>
+	<strong>
+	  Product Description:
+	</strong>
+	  <%#= product.product.description %>
+	</p>
 
-<%= link_to 'New Loading', new_loading_path %>
+	-->
+	<% end %>
+	</p>
+	<br>
+	<br>
+
+	<%# TODO paginate %>
+      <% end %>
+  </div>
+</div>
+
+<div class="text-center">
+<%# will_paginate @collection, renderer: BootstrapPagination::Rails %>
+</div>

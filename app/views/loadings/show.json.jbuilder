@@ -1,1 +1,0 @@
-json.partial! "loadings/loading", loading: @loading

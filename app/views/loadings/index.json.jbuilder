@@ -1,1 +1,0 @@
-json.array! @loadings, partial: 'loadings/loading', as: :loading

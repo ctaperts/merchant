@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :loadings
+  get 'loadings/index'
+  resources :loadings do
+    put :load_check, on: :member
+    put :quality_check, on: :member
+  end
+
+
   resources :locations
   resources :truck_histories
   resources :trucks

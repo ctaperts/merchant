@@ -47,7 +47,7 @@ class LineItemsController < ApplicationController
 
   private
   def product_params
-    params.require(:line_item).permit(:quantity, :cart_id, :order_id, :case, :pounds)
+    params.require(:line_item).permit(:quantity, :cart_id, :order_id, :case, :pounds, :loading_id)
   end
 
 

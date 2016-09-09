@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906043500) do
+ActiveRecord::Schema.define(version: 20160909032720) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -34,31 +34,24 @@ ActiveRecord::Schema.define(version: 20160906043500) do
   create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
-    t.integer  "quantity",        default: 1
+    t.integer  "quantity",         default: 1
     t.decimal  "price"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "order_id"
     t.decimal  "case"
     t.decimal  "price_per_case"
     t.decimal  "pounds"
     t.decimal  "price_per_pound"
+    t.boolean  "check",            default: false
+    t.datetime "check_on"
+    t.string   "check_by"
+    t.boolean  "quality_check",    default: false
+    t.datetime "quality_check_on"
+    t.string   "quality_check_by"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
-  end
-
-  create_table "loadings", force: :cascade do |t|
-    t.boolean  "check"
-    t.boolean  "quality_check"
-    t.string   "check_by"
-    t.string   "quality_check_by"
-    t.datetime "check_on"
-    t.datetime "check_quality_on"
-    t.integer  "line_items_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["line_items_id"], name: "index_loadings_on_line_items_id"
   end
 
   create_table "locations", force: :cascade do |t|
