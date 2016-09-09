@@ -53,13 +53,30 @@
     <table border="1" class="table table-order">
       <tr>
 	<td class="check icon">
-	  <%= link_to fa_icon("check-square-o"), 
-	  load_check_loading_path(line_item),
-	  method: :put
-	  %>
+	  <% if line_item.check.present? %>
+	    <%= link_to fa_icon("check-square-o"), 
+	    load_check_loading_path(line_item),
+	    method: :put
+	    %>
+	  <% else %>
+	    <%= link_to fa_icon("square-o"), 
+	    load_check_loading_path(line_item),
+	    method: :put
+	    %>
+	  <% end %>
 	</td>
 	<td class="check icon">
-	  <i class="fa fa-square-o" aria-hidden="true"></i>
+	  <% if line_item.quality_check.present? %>
+	    <%= link_to fa_icon("check-square-o"), 
+	    quality_check_loading_path(line_item),
+	    method: :put
+	    %>
+	  <% else %>
+	    <%= link_to fa_icon("square-o"), 
+	    quality_check_loading_path(line_item),
+	    method: :put
+	    %>
+	  <% end %>
 	</td>
 	<td class="item-type">
 	<p>
