@@ -46,7 +46,7 @@
       <th class="item-type">Type</th>
       <th class="item-name">Item name</th>
       <th class="item-quantity">Quantity</th>
-      <th class="item-price">Price</th>
+      <th class="item-price">Location</th>
       </tr>
     </table>
 	<% orders.line_items.each do |line_item| %>
@@ -113,7 +113,7 @@
 	</td>
 	<td class="item-price">
 	<p>
-	  <%= number_to_currency(line_item.price) %>
+	  <%= line_item.product.location.try(:name) %>
 	</p>
 	</td>
       </tr>
