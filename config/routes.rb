@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'loadings/index'
+  get 'loadings/show_all'
+  get 'loadings/show_by_order'
   resources :loadings do
     put :load_check, on: :member
     put :quality_check, on: :member
