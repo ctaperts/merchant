@@ -5,12 +5,10 @@
       <tr>
 	<th></th>
 	<th>Product</th>
-	<th>Items</th>
-	<th>Pounds</th>
-	<th>Cases</th>
+	<th colspan="3">Amount</th>
 	<th>Unit Price</th>
 	<th>Total Price</th>
-	<th></th>
+	<th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
@@ -23,49 +21,47 @@
 	    <%= product.product.name %>
 	  </td>
 
-	  <td>
+	  <td colspan="3">
 	    <div class="row">
-	      <div class="col-md-4">
-	    <%= simple_form_for(product) do |f| %>
+		<%= simple_form_for(product, html: { class: "form-inline" } ) do |f| %>
+		  <div class="col-sm-3">
+		    <% case product.product.item_amount_type %>
+		    <% when 1, 3, 5, 7 %>
+		      <%= f.input :quantity, input_html: { min: 0, class: "cart-input" }, label: 'Items' %>
+		    <% end %>
+		  </div>
 
-	      <% case product.product.item_amount_type %>
-	      <% when 1, 3, 5, 7 %>
-		<%= f.input :quantity, input_html: { min: 0, style: 'width:80px' }, label: false, class: "pull-left"  %>
-		<%= f.button :submit, "Apply", :class => "btn-primary" %>
-	  </td>
-	      <% end %>
+		  <div class="col-sm-3">
+		    <% case product.product.item_amount_type %>
+		    <% when 2, 3, 6, 7 %>
+		      <%= f.input :pounds, input_html: { min: 0, class: "cart-input" }, label: 'Pounds' %>
+		    <% end %>
+		  </div>
 
-	  <td>
-	      <% case product.product.item_amount_type %>
-	      <% when 2, 3, 6, 7 %>
-		<%= f.input :pounds, input_html: { min: 0, style: 'width:80px' }, label: false, class: "pull-left"  %>
-		<%= f.button :submit, "Apply", :class => "btn-primary" %>
-	    <% end %>
-	  </td>
-
-	  <td>
-	      <% case product.product.item_amount_type %>
-	      <% when 4, 5, 6, 7 %>
-		<%= f.input :case, input_html: { min: 0, style: 'width:80px' }, label: false, class: "pull-left"  %>
-		<%= f.button :submit, "Apply", :class => "btn-primary" %>
-	      <% end %>
-	    <% end %>
-	      </div>
+		  <div class="col-sm-3">
+		    <% case product.product.item_amount_type %>
+		    <% when 4, 5, 6, 7 %>
+		      <%= f.input :case, input_html: { min: 0, class: "cart-input" }, label: 'Cases' %>
+		    <% end %>
+		  </div>
+		  <div class="col-xs-3">
+		    <%= f.button :submit, "Apply", class: "btn btn-primary cart-apply" %>
+		  </div>
+		<% end %>
 	    </div>
 	  </td>
 
-	  <td>
-	    <%= number_to_currency(product.price) %>
-	  </td>
-	  <td>
-	    <%= number_to_currency(product.total_price) %>
-	  </td>
-	  <td>
-	    <%= link_to "Remove", line_item_path(product.id), method: :delete, class: "btn btn-sm btn-danger" %>
-	  </td>
-	</tr>
+	    <td>
+	      <%= number_to_currency(product.price) %>
+	    </td>
+	    <td>
+	      <%= number_to_currency(product.total_price) %>
+	    </td>
+	    <td>
+	      <%= link_to "Remove", line_item_path(product.id), method: :delete, class: "btn btn-sm btn-danger" %>
+	    </td>
+	  </tr>
       <% end %>
-	<th></th>
     </tbody>
   </table>
 
