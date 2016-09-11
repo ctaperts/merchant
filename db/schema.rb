@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20160909032720) do
     t.decimal  "case"
     t.decimal  "price_per_case"
     t.integer  "item_amount_type",    default: 0
-    t.integer  "location_id"
+    t.integer  "location_id",         default: 1
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["location_id"], name: "index_products_on_location_id"
