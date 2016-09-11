@@ -11,4 +11,8 @@ class LoadingsController < ApplicationController
     @order = Order.all.reverse_order
     @route_order_ids = Route.all.where(truck_loaded: false).pluck(:order_id)
   end
+  def show_by_location
+    @order = Order.all.reverse_order
+    @route_order_ids = Route.all.where(truck_loaded: false).pluck(:order_id)
+  end
 end
