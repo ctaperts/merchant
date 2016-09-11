@@ -18,11 +18,7 @@
       <th class="item-price">Location</th>
       </tr>
     </table>
-    <% @route_order_ids.each do |route_order_id| %>
-    <% Order.where(id: route_order_id).each do |orders| %>
-      <% orders.line_items.sort_by{|item| item.product.location.id}.each do |line_item| %>
-	<!-- @route_order_ids.each { |route_order_id| Order.where(id: route_order_id).each { |orders| orders.line_items.sort_by{|item| item.product.location.name}.each { |k| puts k.product.name } } }
- -->
+    <% @line_item_by_location.each do |line_item| %>
     <table border="1" class="table table-order">
       <tr>
 	<td class="check icon">  <!-- LOAD CHECK -->
@@ -94,8 +90,6 @@
 
       <% end %> <!-- LINEITEM END -->
 	<%# TODO paginate %>
-      <% end %>   <!-- Order.all% -->
-    <% end %>  <!--  @route_order_ids% -->
   </div>
 </div>
 
