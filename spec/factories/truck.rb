@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory(:truck) do
-    description "The Beach"
-    number 1
+  factory(:truck) do |f|
+    f.description { Faker::Commerce.product_name }
+    f.number { Faker::Number(10) }
   end
 end
