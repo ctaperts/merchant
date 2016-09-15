@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Brand, type: :model do
-  it "has a valid name"
-  it "should validate_uniqueness_of name"
+describe Brand do
+  it "is invalid without a name" do
+    expect( FactoryGirl.build(:brand, name: nil ) ).to_not be_valid
+  end
+  it "is valid with a name" do
+    expect( FactoryGirl.build(:brand) ).to be_valid
+  end
 end

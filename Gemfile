@@ -56,6 +56,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'to_factory'
 
 end
 
@@ -76,6 +77,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'capybara'
   gem 'launchy'
+  gem 'guard-rspec'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
