@@ -1,19 +1,19 @@
 FactoryGirl.define do
-  factory(:product) do
-    avatar_content_type nil
-    avatar_file_name nil
-    avatar_file_size nil
-    avatar_updated_at nil
-    brand_id 1
-    category_id 2
-    description nil
-    item_amount_type 0
-    location_id 2
-    name "Artichokes"
-    pounds nil
-    price BigDecimal.new("1.0")
-    price_per_case nil
-    price_per_pound nil
-    quantity 10
+  factory(:product) do |f|
+    f.name { Faker::Food.ingredient }
+    f.avatar_content_type nil
+    f.avatar_file_name nil
+    f.avatar_file_size nil
+    f.avatar_updated_at nil
+    f.brand_id { Faker::Number(5) } 
+    f.category_id { Faker::Number(5) }
+    f.description { Faker::Hipster.sentence }
+    f.item_amount_type { Faker::Number(7) }
+    f.location_id { Faker::Number(5) }
+    f.pounds { Faker::Number(5) }
+    f.price { Faker::Commerce.price }
+    f.price_per_case { Faker::Commerce.price }
+    f.price_per_pound { Faker::Commerce.price }
+    f.quantity { Faker::Number(500) }
   end
 end
