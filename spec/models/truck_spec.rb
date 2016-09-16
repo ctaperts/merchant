@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Truck, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Truck do
+  it "is invalid without a number and description" do
+    expect( FactoryGirl.build(:truck, number: nil ) ).to_not be_valid
+    expect( FactoryGirl.build(:truck, description: nil ) ).to_not be_valid
+  end
+  it "is valid" do
+    expect( FactoryGirl.build(:truck) ).to be_valid
+  end
 end

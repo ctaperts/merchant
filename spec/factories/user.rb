@@ -9,7 +9,7 @@ FactoryGirl.define do
     f.last_sign_in_ip { Faker::Internet.ip_v4_address }
     f.remember_created_at { Faker::Date.between(2.days.ago, Date.today) }
     f.reset_password_sent_at { Faker::Date.between(2.days.ago, Date.today) }
-    f.reset_password_token nil
+    f.password { Faker::Lorem.characters(10) }
     f.sign_in_count { Faker::Number.number(3) }
   end
 end

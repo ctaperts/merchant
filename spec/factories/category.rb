@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory(:category) do |f|
-    f.name { Faker::food.ingredient }
+    f.name { Faker::GameOfThrones.house }
   end
 end

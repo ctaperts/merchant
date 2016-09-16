@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Route, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Route do
+  it "is invalid without a order and truck" do
+    expect( FactoryGirl.build(:route, order: nil ) ).to_not be_valid
+    expect( FactoryGirl.build(:route, truck: nil ) ).to_not be_valid
+  end
+  it "is valid with a name" do
+    expect( FactoryGirl.build(:route) ).to be_valid
+  end
 end
