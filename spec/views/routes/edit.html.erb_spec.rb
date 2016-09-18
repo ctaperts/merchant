@@ -5,7 +5,7 @@ RSpec.describe "routes/edit", type: :view do
     @route = assign(:route, Route.create!(
       :truck => 1,
       :description => "MyString",
-      :order => nil
+      :order_id => 1
     ))
   end
 
