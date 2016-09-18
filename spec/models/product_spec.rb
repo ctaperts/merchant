@@ -4,7 +4,7 @@ describe Product do
   it "is valid" do
     expect( FactoryGirl.build(:product) ).to be_valid
   end
-  it "is not valid" do
+  it "is not valid without name location_id brand_id category_id quantity negative quantity negative price" do
     expect( FactoryGirl.build(:product, name: nil ) ).to_not be_valid
     expect( FactoryGirl.build(:product, location_id: nil ) ).to_not be_valid
     expect( FactoryGirl.build(:product, brand_id: nil ) ).to_not be_valid

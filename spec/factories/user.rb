@@ -1,4 +1,4 @@
-FactoryGirl.define do
+#FactoryGirl.define do
   #factory(:user) do |f|
     #f.admin false
     #f.current_sign_in_at { Faker::Date.between(2.days.ago, Date.today) }
@@ -13,15 +13,31 @@ FactoryGirl.define do
     #f.password              "arenaren"
     #f.password_confirmation "arenaren"
   #end
-  factory :user do
+  #factory :user do
     #first                   { Faker::Name.first_name }
     #last                    { Faker::Name.last_name }
-    email                   { Faker::Internet.email }
-    admin                   false
-    password                "secrets1"
-    password_confirmation   "secrets1"
+    #email                   { Faker::Internet.email }
+    #admin                   false
+    #password                "secrets1"
+    #password_confirmation   "secrets1"
     #confirmed_at            Date.today
 
+    #factory :admin do
+      #admin               true
+    #end
+  #end
+#end
+FactoryGirl.define do
+  sequence :email do |n|
+    "person#{n}@example.com"
+  end
+end
+
+FactoryGirl.define do
+  factory :user, :class => 'User' do
+    email
+    password '12345678'
+    password_confirmation '12345678'
     factory :admin do
       admin               true
     end
