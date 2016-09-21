@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "brands/index", type: :view do
   before(:each) do
+    skip
     assign(:brands, [
       Brand.create!(
         :name => "Name"

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "truck_histories/edit", type: :view do
   before(:each) do
+    skip
     @truck_history = assign(:truck_history, TruckHistory.create!(
       :maintenance_info => "MyString",
       :maintenance_file => "MyString",

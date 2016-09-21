@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "routes/show", type: :view do
   before(:each) do
+  skip
     @route = assign(:route, Route.create!(
       :truck => 2,
       :description => "Description",

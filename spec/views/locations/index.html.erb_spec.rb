@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "locations/index", type: :view do
   before(:each) do
+  skip
     assign(:locations, [
       Location.create!(
         :location => 2,

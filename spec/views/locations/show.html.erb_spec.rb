@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "locations/show", type: :view do
   before(:each) do
+  skip
     @location = assign(:location, Location.create!(
       :location => 2,
       :location_info => "Location Info",

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "routes/index", type: :view do
   before(:each) do
+  skip
     assign(:routes, [
       Route.create!(
         :truck => 2,

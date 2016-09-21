@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "trucks/index", type: :view do
   before(:each) do
+    skip
     assign(:trucks, [
       Truck.create!(
         :number => 2,

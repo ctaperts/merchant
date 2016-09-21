@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "categories/new", type: :view do
   before(:each) do
+  skip
     assign(:category, Category.new(
       :name => "MyString"
     ))

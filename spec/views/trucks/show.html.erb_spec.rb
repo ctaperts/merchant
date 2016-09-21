@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "trucks/show", type: :view do
   before(:each) do
+    skip
     @truck = assign(:truck, Truck.create!(
       :number => 2,
       :description => "Description"
