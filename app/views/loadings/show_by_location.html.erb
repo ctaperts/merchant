@@ -8,6 +8,7 @@
       <tr>
 	<th class="check icon" title="Load Check">LC</th>
 	<th class="check icon" title="Quality Check">QC</th>
+      <th class="item-type">Order ID</th>
       <th class="item-type">Type</th>
       <th class="item-name">Item name</th>
       <th class="item-quantity">Quantity</th>
@@ -42,6 +43,11 @@
 	    method: :put
 	    %>
 	  <% end %>
+	</td>
+	<td class="item-type"> <!-- ORDER ID -->
+	<p>
+	  <%= line_item.order_id %>
+	</p>
 	</td>
 	<td class="item-type"> <!-- CATEGORY NAME -->
 	<p>
